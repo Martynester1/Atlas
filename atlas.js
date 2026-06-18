@@ -40,7 +40,7 @@ function loadCountries(region) {
                     modal.show();
 
                     fetch(`https://restcountries.com/v5/name/${countryName}?fullText=true`,
-                         { headers: { 'Authorization': 'Bearer rc_live_e7b1037bc85b4e1dad6100e0db58d1ca' } }))
+                         { headers: { 'Authorization': 'Bearer rc_live_e7b1037bc85b4e1dad6100e0db58d1ca' } })
                         .then(res => res.json())
                         .then(data => {
                             const country = data[0];
