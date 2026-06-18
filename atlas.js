@@ -7,7 +7,8 @@ const modal = new bootstrap.Modal(document.getElementById("one-country"));
 function loadCountries(region) {
     countriesList.innerHTML = "";
 
-    fetch(`https://restcountries.com/v3.1/region/${region}`)
+    fetch(`https://restcountries.com/v5/region/${region}`,
+         { headers: { 'Authorization': 'Bearer rc_live_e7b1037bc85b4e1dad6100e0db58d1ca' } })
         .then(res => res.json())
         .then(data => {
             data.forEach(country => {
@@ -38,7 +39,8 @@ function loadCountries(region) {
 
                     modal.show();
 
-                    fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
+                    fetch(`https://restcountries.com/v5/name/${countryName}?fullText=true`,
+                         { headers: { 'Authorization': 'Bearer rc_live_e7b1037bc85b4e1dad6100e0db58d1ca' } }))
                         .then(res => res.json())
                         .then(data => {
                             const country = data[0];
